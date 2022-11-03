@@ -1,0 +1,53 @@
+.yellow-text{
+    color: $yellow;
+}
+
+.gray-text {
+    color: $gray-text;
+}
+
+.display-as-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.display-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.primary-background {
+    background: $primary;
+}
+
+.white-font {
+    color: $white;
+}
+
+.link {
+    color: $gray-text;
+    text-decoration: none;    
+}
+
+.link:visited{
+    color: $gray-text;
+    text-decoration: none;    
+}
+
+.hover {
+    width: fit-content;
+}
+
+.hover:hover {
+    border-bottom: 1px solid $gray-text;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.text-align-center {
+    text-align: center;
+}

@@ -1,30 +1,26 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <v-app class="container">
+    <header-menu />
+    <v-main>
+      <v-container>
+        <suspense> <router-view /></suspense>
+        <template #fallback> Loading... </template>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
+<style></style>
+
+<script setup lang="ts">
+import HeaderMenu from "@/components/HeaderMenu.vue";
+import { startConnection } from "./helpers/serverConnect";
+startConnection();
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.container {
+  background: #00141e;
+  overflow: hidden;
 }
 </style>
