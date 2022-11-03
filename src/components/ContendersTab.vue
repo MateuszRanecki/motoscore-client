@@ -17,6 +17,7 @@
     </v-btn-toggle>
     <div class="contenders">
       <div class="d-flex mb-2 justify-space-between">
+        <p class="table-atom">Place</p>
         <p class="table-atom">Name</p>
         <p class="table-atom">Number</p>
         <p class="table-atom">Penalty points</p>
@@ -27,9 +28,10 @@
       </div>
       <div
         class="d-flex justify-space-between"
-        v-for="item in filteredContenders"
+        v-for="(item, index) in filteredContenders"
         :key="item.id"
       >
+        <p class="table-atom">{{ index + 1 }}</p>
         <p class="table-atom">{{ `${item.firstName} ${item.lastName}` }}</p>
         <p class="table-atom">{{ `${item.startNumber}` }}</p>
         <p class="table-atom">
@@ -78,9 +80,15 @@ fetchData();
 
 const filteredContenders = computed(() => {
   if (data.value.contenders) {
-    return data.value.contenders.filter((contender) => {
-      return contender.tournamentGroup === currentGroup.value;
-    });
+    return data.value.contenders
+      .filter((contender) => {
+        return contender.tournamentGroup === currentGroup.value;
+      })
+      .sort(
+        (a, b) =>
+          b.currentPart - a.currentPart ||
+          a.penaltyPointsCount - b.penaltyPointsCount
+      );
   }
   return [];
 });
@@ -125,7 +133,7 @@ con.on("SendRefreshRequest", fetchData);
 }
 .contenders {
   overflow-x: scroll;
-  max-width: 500px;
+  max-width: 600px;
   @include breakpoint(xs) {
     overflow-x: hidden;
   }

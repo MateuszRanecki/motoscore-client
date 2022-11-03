@@ -113,6 +113,7 @@ async function changeStatus(tournament: Tournament, status: TournamentStatus) {
     .then((response) => {
       if (response.status >= 200 && response.status <= 300) {
         con.invoke("RefreshTournaments");
+        dialog.value = false;
       }
     });
 }
