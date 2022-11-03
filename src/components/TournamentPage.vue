@@ -36,6 +36,9 @@
           <v-icon icon="mdi-close" color="grey-text" /> Close
         </v-btn>
       </div>
+      <p class="mt-2">
+        {{ data.levelsCount > 1 ? `${data.levelsCount} levels` : "1 level" }}
+      </p>
     </div>
 
     <div class="contender-plus mb-3">

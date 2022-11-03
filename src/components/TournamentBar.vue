@@ -14,6 +14,9 @@
     <div class="display-space-between">
       <div class="mt-1">
         <p>Status: {{ TournamentStatus[data.status] }}</p>
+        <p>
+          {{ data.levelsCount > 1 ? `${data.levelsCount} levels` : "1 level" }}
+        </p>
         <v-btn
           class="tournament-button"
           v-if="data.status === TournamentStatus.Created"

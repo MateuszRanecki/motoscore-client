@@ -3,6 +3,9 @@
     <div class="d-flex">
       <h2 class="mb-2 mr-4">Tournament {{ data.name }}</h2>
     </div>
+    <h3 class="mb-1">
+      {{ data.levelsCount > 1 ? `${data.levelsCount} levels` : "1 level" }}
+    </h3>
     <h3>Group</h3>
     <v-btn-toggle class="buttons-wrapper" mandatory v-model="currentGroup">
       <v-btn
